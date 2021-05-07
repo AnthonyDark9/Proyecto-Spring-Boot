@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyectos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class = "container my-2" >
+    <h1>Lista de Proyectos</h1>
+    <hr>
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+    <br>
+<a th:href = "@{/proyecto/showNuevoProyectoForm}" class="btn btn-primary btn-block  mb-3">Agregar Proyecto</a>
+<table class = "table table-hover table-dark table-responsive-md">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Duracion estimada</th>
+        <th>Fecha de Inicio</th>
+        <th>Titulo Registro</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody id="myTable">
+    <tr th:each="proyectos : ${listarProyectos}">
+        <td th:text="${proyectos.idProyecto}"></td>
+        <td th:text="${proyectos.nombreProyecto}"></td>
+        <td th:text="${proyectos.duracionEstimadaProyecto}"></td>
+        <td th:text="${proyectos.fechaInicioPrevista}"></td>
+        <td th:text="${proyectos.registroProyecto.tituloRegistroProyecto}"></td>
+        <td><a th:href="@{/proyecto/showFormForUpdate/{id}(id = ${proyectos.idProyecto})}" class="btn btn-secondary">Update</a>
+            <a th:href="@{/proyecto/borrarProyecto/{id}(id = ${proyectos.idProyecto})}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<hr>
+<h2 class="h2 modal-header"><a th:href="@{/index/}">Salir</a></h2>
+
+
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > - 1)
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

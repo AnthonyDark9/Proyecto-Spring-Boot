@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Personal Externo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Nuevo Personal Externo</h1>
+    <hr>
+    <h2>Guardar Personal Externo</h2>
+
+    <form action="#" th:action="@{/personal/guardarPersonal}" th:object="${personal}"  method="POST">
+        <input type="text" th:field="*{puestoPersonalExterno}" placeholder="Puesto" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('puestoPersonalExterno')}" th:errors="*{puestoPersonalExterno}">Error Puesto</span>
+        <input type="text" th:field="*{categoriaPersonalExterno}" placeholder="Categoría" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('categoriaPersonalExterno')}" th:errors="*{categoriaPersonalExterno}">Error Categoría</span>
+
+        <div class="form-group row">
+            <label class="col-md-2">Empresa: </label>
+            <select th:field="*{empresaExt}" id="empresa">
+                <option th:each="empresa : ${empresas}"
+                        th:value="${empresa.idEmpresaExterna}"
+                        th:text="${empresa.nombreEmpresaExterna}"
+                />
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info col-2">Guardar Personal</button>
+    </form>
+    <hr>
+    <a th:href="@{/personal/}">Regresar a la página anterior</a>
+
+</div>
+</body>
+</html>

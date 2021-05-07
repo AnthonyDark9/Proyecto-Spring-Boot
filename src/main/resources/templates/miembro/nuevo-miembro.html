@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Miembro</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Nuevo Miembro</h1>
+    <hr>
+    <h2>Guardar Miembro</h2>
+
+    <form action="#" th:action="@{/miembro/guardarMiembro}" th:object="${miembro}"  method="POST">
+        <input type="text" th:field="*{nombreMiembro}" placeholder="Nombre Miembro" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{apellidoPaterno}" placeholder="Apellido Paterno" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{apellidoMaterno}" placeholder="Apellido Materno" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{pesoMiembro}" placeholder="Peso" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{edadMiembro}" placeholder="Edad" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{correoMiembro}" placeholder="Correo electrónico" class="form-control mb-4 col-4">
+        <input type="password" th:field="*{contraseniaMiembro}" placeholder="Contraseña" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{autoridad}" placeholder="Authority" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{telefonoMiembro}" placeholder="Teléfono" class="form-control mb-4 col-4">
+        <input type="number" th:field="*{idDireccion}" placeholder="ID Dirección" class="form-control mb-4 col-4">
+        <input type="number" th:field="*{idUniversidad}" placeholder="ID Universidad" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2">Guardar empleado</button>
+
+    </form>
+    <hr>
+    <a th:href="@{/miembro/}">Regresar a la lista de empleados</a>
+
+</div>
+</body>
+</html>

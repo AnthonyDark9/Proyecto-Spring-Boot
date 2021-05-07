@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Tarea</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Nueva Tarea</h1>
+    <hr>
+    <h2>Guardar Tarea</h2>
+
+    <form action="#" th:action="@{/tarea/guardarTarea}" th:object="${tarea}"  method="POST">
+        <input type="text" th:field="*{nombreTarea}" placeholder="Nombre tarea" class="form-control mb-4 col-4">Duración estimada total
+        <input type="date" th:field="*{duracionEstimadaTotal}" placeholder="Duración estimada de la tarea" class="form-control mb-4 col-4">
+
+        <div class="form-group row">
+            <label class="col-md-2">Proyecto: </label>
+            <select th:field="*{proyecto}" id="registro">
+                <option th:each="proyecto: ${proyectos}"
+                        th:value="${proyecto.idProyecto}"
+                        th:text="${proyecto.nombreProyecto}"
+                />
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info col-2">Guardar Tarea</button>
+    </form>
+    <hr>
+    <a th:href="@{/tarea/}">Regresar a la página anterior</a>
+
+</div>
+</body>
+</html>

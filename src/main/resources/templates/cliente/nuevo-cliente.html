@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Cliente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Nuevo Cliente</h1>
+    <hr>
+    <h2>Guardar Cliente</h2>
+
+    <form action="#" th:action="@{/cliente/guardarCliente}" th:object="${cliente}"  method="POST">
+        <input type="text" th:field="*{nombreCliente}" placeholder="Nombre Cliente" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('nombreCliente')}" th:errors="*{nombreCliente}">Error nombre</span>
+        <input type="text" th:field="*{apellidoPaterno}" placeholder="Apellido Paterno" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('apellidoPaterno')}" th:errors="*{apellidoPaterno}">Error apellido paterno</span>
+        <input type="text" th:field="*{apellidoMaterno}" placeholder="Apellido Materno" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('apellidoMaterno')}" th:errors="*{apellidoMaterno}">Error apellido materno</span>
+        <input type="text" th:field="*{numeroFolio}" placeholder="Núm. Folio" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('numeroFolio')}" th:errors="*{numeroFolio}">Error Folio</span>
+        <input type="text" th:field="*{nombreUsuario}" placeholder="Username" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('nombreUsuario')}" th:errors="*{nombreUsuario}">Error nombre usuario</span>
+        <input type="password" th:field="*{contraseniaUsuario}" placeholder="Contraseña" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('contraseniaUsuario')}" th:errors="*{contraseniaUsuario}">Error password</span>
+
+        <div class="form-group row">
+            <label class="col-md-2">Empresa</label>
+            <select th:field="*{empresaExterna}" id="empresa">
+                <option th:each="empresa : ${empresas}"
+                        th:value="${empresa.idEmpresaExterna}"
+                        th:text="${empresa.nombreEmpresaExterna}"
+                    />
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info col-2">Guardar Cliente</button>
+    </form>
+    <hr>
+    <a th:href="@{/cliente/}">Regresar a la lista de clientes</a>
+
+</div>
+</body>
+</html>

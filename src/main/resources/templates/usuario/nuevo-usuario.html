@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Nuevo Usuario</h1>
+    <hr>
+    <h2>Guardar Usuario</h2>
+
+    <form action="#" th:action="@{/usuario/guardarUsuario}" th:object="${usuario}"  method="POST">
+        <input type="text" th:field="*{username}" placeholder="Username / Email" class="form-control mb-4 col-4">
+        <input type="password" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-4">
+        <br>
+        <button type="submit" class="btn btn-info col-2">Guardar Usuario</button>
+    </form>
+    <hr>
+    <a th:href="@{/usuario/}">Regresar a la página anterior</a>
+
+</div>
+</body>
+</html>

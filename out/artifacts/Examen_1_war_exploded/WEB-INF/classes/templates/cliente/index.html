@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD de Cliente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class = "container my-2" >
+    <h1>Lista de Clientes</h1>
+    <hr>
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+    <br>
+    <a th:href = "@{/cliente/showNuevoClienteForm}" class="btn btn-primary btn-block  mb-3">Agregar cliente</a>
+    <table class = "table table-dark table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Nombre Cliente</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Núm. Folio</th>
+            <th style="text-align: center">Username</th>
+            <th style="text-align: center">Acciones</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <tr th:each="cliente : ${listaClientes}">
+            <td th:text="${cliente.nombreCliente}"></td>
+            <td th:text="${cliente.apellidoPaterno}"></td>
+            <td th:text="${cliente.apellidoMaterno}"></td>
+            <td th:text="${cliente.numeroFolio}"></td>
+            <td th:text="${cliente.nombreUsuario}"></td>
+            <td><a th:href="@{/cliente/showFormForUpdate/{id}(id = ${cliente.idCliente})}" class="btn btn-info">Update</a>
+                <a th:href="@{/cliente/borrarCliente/{id}(id = ${cliente.idCliente})}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<h2 class="h2 modal-header"><a th:href="@{/index}">Salir</a></h2>
+
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > - 1)
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

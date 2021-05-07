@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Proyecto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Actualizar Proyecto</h1>
+    <hr>
+    <h2>Actualizar Proyecto</h2>
+
+    <form action="#" th:action="@{/proyecto/guardarProyecto}" th:object="${proyecto}"  method="POST">
+        <input type="hidden" th:field="*{idProyecto}">
+        <input type="text" th:field="*{nombreProyecto}" placeholder="Nombre Proyecto" class="form-control mb-3 col-4">
+        <input type="date" th:field="*{duracionEstimadaProyecto}" placeholder="Duración estimada proyecto" class="form-control mb-3 col-4">
+        <input type="date" th:field="*{fechaInicioPrevista}" placeholder="Fecha de inicio" class="form-control mb-3 col-4">
+        <input type="hidden" th:field="*{registroProyecto.idRegistroProyecto}">
+        <button type="submit" class="btn btn-info col-2">Actualizar Proyecto</button>
+    </form>
+    <hr>
+    <a th:href="@{/proyecto/}">Regresar a la página anterior</a>
+</div>
+</body>
+</html>

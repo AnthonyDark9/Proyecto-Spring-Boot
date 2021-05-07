@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Departamento</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Nuevo Departamento</h1>
+    <hr>
+    <h2>Guardar Departamento</h2>
+
+    <form action="#" th:action="@{/departamento/guardarDepartamento}" th:object="${departamento}"  method="POST">
+        <input type="text" th:field="*{nombreDepartamento}" placeholder="Departamento" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('nombreDepartamento')}" th:errors="*{nombreDepartamento}">Error Departamento</span>
+
+        <div class="form-group row">
+            <label class="col-md-2">Universidad: </label>
+            <select th:field="*{universidad}" id="universidad">
+                <option th:each="universidad : ${universidades}"
+                        th:value="${universidad.idUniversidad}"
+                        th:text="${universidad.nombrePlantel}"
+                />
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info col-2">Guardar Departamento</button>
+    </form>
+    <hr>
+    <a th:href="@{/departamento/}">Regresar a la página anterior</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Proyecto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Nuevo Proyecto</h1>
+    <hr>
+    <h2>Guardar Proyecto</h2>
+
+    <form action="#" th:action="@{/proyecto/guardarProyecto}" th:object="${proyecto}"  method="POST">
+        <input type="text" th:field="*{nombreProyecto}" placeholder="Nombre proyecto" class="form-control mb-4 col-4">Duración estimada
+        <input type="date" th:field="*{duracionEstimadaProyecto}" placeholder="Duración estimada del proyecto" class="form-control mb-4 col-4">Fecha de inicio prevista
+        <input type="date" th:field="*{fechaInicioPrevista}" placeholder="Fecha de inicio prevista" class="form-control mb-4 col-4">
+
+        <div class="form-group row">
+            <label class="col-md-2">Registro: </label>
+            <select th:field="*{registroProyecto}" id="registro">
+                <option th:each="registro: ${registros}"
+                        th:value="${registro.idRegistroProyecto}"
+                        th:text="${registro.tituloRegistroProyecto}"
+                />
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info col-2">Guardar Proyecto</button>
+    </form>
+    <hr>
+    <a th:href="@{/proyecto/}">Regresar a la página anterior</a>
+
+</div>
+</body>
+</html>

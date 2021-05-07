@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="shortcut icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/menu.css" th:href="@{/css/menu.css}">
+</head>
+<body>
+<header>
+    <nav class="navegacion nav">
+        <ul class="menu nav navbar-nav navbar-center">
+            <a th:href="@{/index/}">
+                <li><img src="/img/ibero_logo.png" alt="IBERO" class="imagen"></li>
+            </a>
+            <li><a href="#">ALUMNOS</a>
+                <ul class="submenu">
+                    <li><a th:href="@{/alumno/}">CRUDS ALUMNOS</a></li>
+                </ul>
+            </li>
+            <li><a href="#">UNIVERSIDAD</a>
+                <ul class="submenu">
+                    <li><a th:href="@{/cliente/}">CRUD Cliente</a></li>
+                    <li><a th:href="@{/miembro/}">CRUD Miembro</a></li>
+                    <li><a th:href="@{/personal/}">CRUD Personal</a></li>
+                    <li><a th:href="@{/socios/}">CRUD Socios</a></li>
+                    <li><a th:href="@{/usuario/}">CRUD Usuarios</a></li>
+                    <li><a th:href="@{/departamento/}">CRUD Departamento</a></li>
+                </ul>
+            </li>
+            <li><a href="#">PROYECTOS</a>
+                <ul class="submenu">
+                    <li><a th:href="@{/proyecto/}">CRUD Proyecto</a></li>
+                    <li><a th:href="@{/tarea/}">CRUD Tarea</a></li>
+                    <li><a th:href="@{/registro-proyecto/}">CRUD Registro Proyectos</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!--
+        <hr class="linea-partidiaria">
+        -->
+    </nav>
+</header>
+<div class="contenedor">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" data-interval="9000">
+            <div class="item active">
+                <!--- Texto del slide -->
+                <div class="container">
+                    <div class="caja_carrusel">
+                        <div class="texto_carrusel">
+                            <div class="tituloCarruselGen"><h2>COVID-19: IBERO CONECTA A DISTANCIA A ALUMNADO CON 'ESCRITORIOS REMOTOS'</h2>
+                            </div>
+                            <div class="tituloCarrusel"><h4>La Coordinación de Cómputo Académico ofrece el servicio para facilitar el proceso de enseñanza-aprendizaje...</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://ibero.mx/prensa/durante-pandemia-ibero-conecta-distancia-alumnado-con-escritorios-remotos"><img src="/img/pcs.jpg" alt="PCS"></a>
+            </div>
+            <div class="item">
+                <div class="container">
+                    <div class="caja_carrusel">
+                        <div class="texto_carrusel">
+                            <div class="tituloCarruselGen"><h2>SUSTENTABILIDAD, LA TRANSFORMACIÓN SOCIOAMBIENTAL EN LOS PLANES MANRESA</h2>
+                            </div>
+                            <div class="tituloCarrusel"><h4>Es el tercer eje transversal que regirá en 30 licenciaturas e ingenierías a partir del semestre Otoño 2021... </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://ibero.mx/prensa/sustentabilidad-la-transformacion-socioambiental-en-los-nuevos-planes-de-estudio"><img src="/img/sustentabilidad.jpg" alt="Sustentabilidad"></a>
+            </div>
+            <div class="item">
+                <div class="container">
+                    <div class="caja_carrusel">
+                        <div class="texto_carrusel">
+                            <div class="tituloCarruselGen"><h2>'GLOBALÍZATE' INVITA A ALUMNADO A INTERNACIONALIZARSE DESDE CASA</h2>
+                            </div>
+                            <div class="tituloCarrusel"><h4>Se apoyará a las y los estudiantes que no pueden acceder a un intercambio académico...</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://ibero.mx/prensa/programa-globalizate-ibero-invita-estudiantado-internacionalizarse-desde-casa"><img src="/img/globalizate.jpg" alt="Globalizate"></a>
+            </div>
+
+            <div class="item">
+                <div class="container">
+                    <div class="caja_carrusel">
+                        <div class="texto_carrusel">
+                            <div class="tituloCarruselGen"><h2>'PLANES MANRESA', UNA PROPUESTA DE LA IBERO PARA HACER FRENTE AL FUTURO</h2>
+                            </div>
+                            <div class="tituloCarrusel"><h4>A partir de agosto, operarán en 30 licenciaturas e ingenierías de nuestra casa de estudios...</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://ibero.mx/prensa/nuevos-planes-de-estudio-una-propuesta-de-la-ibero-para-hacer-frente-al-futuro"><img src="/img/manresa.jpg" alt="Manresa"></a>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="flecha-izq carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="flecha-der right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+</div>
+
+<h2 class="noticias">NOTICIAS</h2>
+<br>
+
+<div class="tres-columnas">
+    <p>Universidades, motor principal de la investigación: Dra. Marisol Silva. La académica señaló que la investigación universitaria genera beneficios para
+        la sociedad en su conjunto y contribuye en el ejercicio del derecho humano a la ciencia.</p>
+
+    <p>#EstudianteIBERO, te invitamos a participar en un espacio de diálogo sobre las distintas problemáticas que se desarrollan en el país. Este ejercicio se realizará en el marco del "Encuentro y Reflexión: Elecciones 2021</p>
+
+    <p>#SaveTheDate
+
+        Del 21 al 29 de junio no te pierdas este diálogo en el que especialistas nos hablarán sobre las relaciones entre los cuidados, género, paz y la sostenibilidad de la vida.</p>
+</div>
+
+
+
+<div class="footer">
+    <br>
+    <p style="text-align: center;">Información COVID-19 / Para seguridad y el bienestar de todos, hicimos nuestros servicios 100%
+        de forma remota. Aprende más sobre nuestras medidas de seguridad.</p>
+    <div class="col-md-12 col-6 footer-icon text-center">
+        <p class="texto-footer footer-ani">TODOS LOS DERECHOS RESERVADOS. COPYRIGHT© 2021 IBERO</p>
+        <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.youtube.com"><i class="fa fa-youtube"></i></a>
+        <a href="https://www.instagram.com/?hl=es-la"><i class="fa fa-instagram"></i></a>
+    </div>
+    <form method="POST" th:action="@{/logout}">
+        <a class="cerrar-sesion" href="#" onclick="this.parentNode.submit()">Cerrar Sesión</a>
+    </form>
+</div>
+</body>
+</html>

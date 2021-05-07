@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Departamento</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Actualizar Departamento</h1>
+    <hr>
+    <h2>Actualizar Departamento</h2>
+
+    <form action="#" th:action="@{/departamento/guardarDepartamento}" th:object="${departamento}"  method="POST">
+        <input type="hidden" th:field="*{idDepartamento}">
+        <input type="text" th:field="*{nombreDepartamento}" placeholder="Departamento" class="form-control mb-3 col-4">
+        <input type="text" th:field="*{universidad.idUniversidad}" placeholder="Apellido Paterno" class="form-control mb-3 col-4">
+        <button type="submit" class="btn btn-info col-2">Actualizar Información</button>
+    </form>
+    <hr>
+    <a th:href="@{/departamento/}">Regresar a la página anterior</a>
+</div>
+</body>
+</html>

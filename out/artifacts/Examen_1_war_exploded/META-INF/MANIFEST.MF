@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: marco
+Build-Jdk: 1.8.0_271
+Implementation-Title: examen1
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: uia.arqsoft
+Main-Class: ${start-class}
+

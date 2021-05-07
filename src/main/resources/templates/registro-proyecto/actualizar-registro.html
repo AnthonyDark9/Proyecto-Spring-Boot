@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Registro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Actualizar Registro</h1>
+    <hr>
+    <h2>Actualizar Registro</h2>
+
+    <form action="#" th:action="@{/registro-proyecto/guardarRegistroProyecto}" th:object="${registroProyecto}"  method="POST">
+        <input type="hidden" th:field="*{idRegistroProyecto}">
+        <input type="text" th:field="*{tituloRegistroProyecto}" placeholder="Titulo del Registro" class="form-control mb-3 col-4">
+        <input type="text" th:field="*{descripcionRegistroProyecto}" placeholder="Descripción" class="form-control mb-3 col-4">
+        <input type="hidden" th:field="*{historialVersion}" placeholder="Historial de versiones" class="form-control mb-3 col-4">Fecha de inicio
+        <input type="date" th:field="*{fechaInicio}" placeholder="Fecha de inicio" class="form-control mb-3 col-4">Fecha estimada
+        <input type="date" th:field="*{fechaFinalizacionEstimada}" placeholder="Fecha de finalización" class="form-control mb-3 col-4">
+        <input type="hidden" th:field="*{universidad.idUniversidad}">
+        <button type="submit" class="btn btn-info col-2">Actualizar Registro</button>
+    </form>
+    <hr>
+    <a th:href="@{/registro-proyecto/}">Regresar a la página anterior</a>
+</div>
+</body>
+</html>
